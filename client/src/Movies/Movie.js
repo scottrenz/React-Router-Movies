@@ -11,14 +11,14 @@ const Movie = (props) => {
        axios
        .get(`http://localhost:5000/api/movies/${props.match.params.id}`)
        .then(response => {
-          setMovie(response.data);
-        })
+        setMovie(response.data);
+      })
         .catch(error => {
           console.error(error);
 
         });
 
-  },[props]);
+  },[props.match.params.id]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
@@ -47,7 +47,7 @@ const Movie = (props) => {
         <div className="movie-star">
              {movie.stars}
            </div>
-         {/* {movie.stars.map(star => (
+         {/* {star.stars.map(star => (
            <div key={star} className="movie-star">
              {star}
            </div>
