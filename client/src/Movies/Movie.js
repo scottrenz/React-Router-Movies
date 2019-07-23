@@ -10,12 +10,18 @@ const Movie = (props) => {
     // You will NEED to add a dependency array to this effect hook
 
        axios
-        .get(`http://localhost:5000/api/movies/${props.id}`)
+        .get(`http://localhost:5000/api/movies/${props.match.params.id}`)
         .then(response => {
+          console.log('response data',response.data)
+          console.log('response props',props)
+          console.log('response id',props.match.params.id)
+          // console.log('response data',response.data.params)
           setMovie(response.data);
         })
         .catch(error => {
+          console.log('catch says',error)
           console.error(error);
+
         });
 
   },[]);
@@ -27,6 +33,7 @@ const Movie = (props) => {
   // }
 
   if (!movie) {
+    console.log('if not movie',movie)
     return <div>Loading movie information...</div>;
   }
 
@@ -43,11 +50,11 @@ const Movie = (props) => {
         </div>
         <h3>Actors</h3>
 
-        {stars.map(star => (
-          <div key={star} className="movie-star">
-            {star}
-          </div>
-        ))}
+         {/* {stars.map(star => (
+           <div key={star} className="movie-star">
+             {star}
+           </div>
+         ))} */}
       </div>
       <div className="save-button">Save</div>
     </div>
