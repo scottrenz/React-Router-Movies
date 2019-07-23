@@ -9,7 +9,6 @@ const MovieList = props => {
       axios
         .get('http://localhost:5000/api/movies')
         .then(response => {
-         console.log('movied list',response.data)
           setMovies(response.data);
         })
         .catch(error => {
@@ -19,15 +18,13 @@ const MovieList = props => {
     
     getMovies();
   }, []);
-  movies.map(movie => (
-    console.log(movie.title,movie.id)
-  )
-    )
   return (
     <div className="movie-list">
       {movies.map(movie => (
       
-      <Link className='saved-list' to={`/movie/${movie.id}`}>{movie.title}</Link>
+      <Link className='saved-list' to={`/movie/${movie.id}`}>{movie.title}
+      <p>click title for details</p>
+      </Link>
       // < MovieDetails key={movie.id} movie={movie}/>
       ))}
     </div>
@@ -39,8 +36,6 @@ function MovieDetails({ movie }) {
   return (
     <div className="movie-card">
       <h2>{title}</h2>
-      <Link to='/movie/1'>{title}</Link>
-      <Link to={`/movie/${movie.id}/`}>{title}</Link>
       <div className="movie-director">
         Director: <em>{director}</em>
       </div>
