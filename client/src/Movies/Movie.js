@@ -30,7 +30,8 @@ const Movie = (props) => {
   // }
 
   if (!movie) {
-    return <div>Loading movie information...</div>;
+    return <div>...</div>;
+    // return <div>Loading movie information...</div>;
   }
 
   const { title, director, metascore } = movie;

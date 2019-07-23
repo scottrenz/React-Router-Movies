@@ -5,20 +5,21 @@ import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
 import { Route } from 'react-router-dom';
 
-const App = () => {
-  const [savedList, setSavedList] = useState( [] );
 
+
+const App = (props) => {
+  const [savedList, setSavedList] = useState( [] );
  const addToSavedList = movie => {
     setSavedList( [...savedList, movie] );
   };
-//   let nprops= props
-// nprops = [props, addToSavedList]
+
   return (
     <div>
-      <SavedList list={savedList} />
+
+      <SavedList onFocus={ ()=> props.history.push('/fresh/0') } list={savedList} />
       <MovieList  />
-      {/* <Movie list={savedList} /> */}
       <Route exact path="/" component={MovieList} />
+      <Route path="/fresh/0" component={Movie} />
       {/* <Route path='/movie/:id' component={Movie} /> */}
       <Route
   path='/movie/:id'

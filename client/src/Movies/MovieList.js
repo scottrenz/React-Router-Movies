@@ -21,7 +21,6 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-      
       <Link className='saved-list' to={`/movie/${movie.id}`}>{movie.title}
       <p>click title for details</p>
       </Link>
