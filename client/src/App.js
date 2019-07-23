@@ -16,9 +16,10 @@ const App = (props) => {
   return (
     <div>
 
-      <SavedList onFocus={ ()=> props.history.push('/fresh/0') } list={savedList} />
+{/* <SavedList onFocus={ ()=> props.history.push('/fresh/0') } list={savedList} /> */}
+      <SavedList list={savedList} />
       <MovieList  />
-      <Route exact path="/" component={MovieList} />
+      {/* <Route exact path="/" component={MovieList} /> */}
       <Route path="/fresh/0" component={Movie} />
       {/* <Route path='/movie/:id' component={Movie} /> */}
       <Route

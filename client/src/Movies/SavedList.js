@@ -8,6 +8,7 @@ const SavedList = props => (
       <span className="saved-movie">{movie.title}</span>
     ))}
       <Link className='home-button' to={`/fresh/0`}>Home</Link>
+      {/* <Link className='home-button' to={`/fresh/0`}>Home</Link> */}
   </div>
 );
 
